@@ -3,6 +3,7 @@ var app = angular.module('fakeApplication', []);
 let allHistoryData=[];
 let queryHistory;
 let test=[];
+let queryEnterance;
 
 app.controller ('fakeAppController', ['$scope','$filter',($scope,$filter) => {
     allHistoryData = [ 
@@ -46,5 +47,18 @@ $scope.queryHistoryTop10=()=>{
     return arr;
 }
 
+$scope.queryEnterance=(id)=>{
+    let result;
+   try{
+        let getArr=$scope.queryHistory(id);
+        getArr.sort( (a,b) => {  return ( ( a.timestamp == b.timestamp ) ? 0 : ( ( a.timestamp > b.timestamp ) ? -1 : 1 ) ); });
+        result=getArr[0];
+        return result;
+   }catch(e){
+        console.log(e);
+        alert("queryEnterance 불가!!");
+   }
+}
+queryEnterance = $scope.queryEnterance
 }])
 

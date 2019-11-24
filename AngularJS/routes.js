@@ -1,5 +1,3 @@
-
-
 module.exports = function (app) {
 
   app.set('view engine','ejs');
@@ -9,7 +7,7 @@ module.exports = function (app) {
 
   app.set('view engine','ejs');
   app.get('/main_practice', (req,res) => {
-    res.render(__dirname+'/client/mainPage.ejs');
+    res.render(__dirname+'/client/main_practice.ejs');
   });
 
   // app.set('view engine','ejs');
